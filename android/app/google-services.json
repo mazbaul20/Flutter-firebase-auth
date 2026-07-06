@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "996000541867",
+    "project_id": "auth-6d9a4",
+    "storage_bucket": "auth-6d9a4.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:996000541867:android:018fdcd6fde303b3359bee",
+        "android_client_info": {
+          "package_name": "com.ostad.firebase_auth"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCuKKPRiVyKpOGyKvVIfoAOp8lnuwxsOu4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
