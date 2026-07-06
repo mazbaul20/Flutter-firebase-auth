@@ -9,7 +9,7 @@ class HomeScreen extends StatelessWidget {
       context: context,
       builder: (context) => AlertDialog(
         title: const Text("Sign Out"),
-        content: const Text('Are you sure you want to sing out?'),
+        content: const Text('Are you sure you want to sign out?'), // বানান ঠিক করা হয়েছে
         actions: [
           TextButton(
             onPressed: () => Navigator.pop(context, false),
@@ -22,7 +22,7 @@ class HomeScreen extends StatelessWidget {
         ],
       ),
     );
-    if(shouldSignOut == true){
+    if (shouldSignOut == true) {
       await FirebaseAuth.instance.signOut();
     }
   }
@@ -83,9 +83,7 @@ class HomeScreen extends StatelessWidget {
               // User Email
               Text(
                 user?.email ?? 'No email',
-                style: Theme.of(
-                  context,
-                ).textTheme.bodyLarge?.copyWith(color: Colors.grey),
+                style: Theme.of(context).textTheme.bodyLarge?.copyWith(color: Colors.grey),
               ),
               const SizedBox(height: 32),
 
@@ -98,8 +96,7 @@ class HomeScreen extends StatelessWidget {
                     children: [
                       Text(
                         'Account Information',
-                        style: Theme.of(context).textTheme.titleMedium
-                            ?.copyWith(fontWeight: FontWeight.bold),
+                        style: Theme.of(context).textTheme.titleMedium?.copyWith(fontWeight: FontWeight.bold),
                       ),
                       const Divider(),
                       _buildInfoRow(
@@ -117,14 +114,18 @@ class HomeScreen extends StatelessWidget {
                       _buildInfoRow(
                         context,
                         'Created',
-                        user?.uid ?? 'N/A', //TODO
-                        Icons.fingerprint,
+                        user?.metadata.creationTime != null
+                            ? user!.metadata.creationTime!.toString().split(' ').first
+                            : 'N/A',
+                        Icons.calendar_today,
                       ),
                       _buildInfoRow(
                         context,
                         'Last Sign In',
-                        user?.uid ?? 'N/A', //TODO
-                        Icons.fingerprint,
+                        user?.metadata.lastSignInTime != null
+                            ? user!.metadata.lastSignInTime!.toString().split(' ').first
+                            : 'N/A',
+                        Icons.access_time,
                       ),
                     ],
                   ),
